@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="demo"></h1>
+
+    <script>
+        // 1- Write a program to declare two numbers. If both numbers are greater than 10, 
+//print "Both numbers are greater than 10". Otherwise, print "At least one number is not greater than 10".
+let num1;
+let num2;
+num1=prompt("enter num1");
+num2=prompt("enter num2");
+if(num1>10){
+    if(num2>10){
+        console.log("Both numbers are greater than 10");
+    }
+    else(
+        console.log("At least one number is not greater than 10")
+    )
+}
+
+
+// 2- Write a program to declare a username and a password. 
+//If both the username and password are correct, print "Access granted". Otherwise, print "Access denied".
+let username,password;
+username=prompt("enter username")
+password=prompt("enter password")
+if(username=true){
+    if(password=true)
+{
+    console.log("Access granted")
+}
+else{
+    console.log("Access denied")
+}
+}
+else{
+    console.log("Access denied")
+}
+
+
+// 3- Write a program to declare a number. If the number is between 10 and 20 (inclusive), print "The number is between 10 and 20".
+// Otherwise, print "The number is not between 10 and 20".
+let num=prompt("enter num");
+if(num>=20&&num<=10){
+    console.log("The number is between 10 and 20")
+}
+else{
+    console.log("The number is not between 10 and 20");
+}
+
+// 4- Write a program that to declare age and whether they have a driver's license (yes or no). 
+//If the user is 18 or older and has a driver's license, print "You can drive". Otherwise, print "You cannot drive".
+let age=prompt("enter your age");
+let drive=prompt("you can drive (yes or no)");
+if(age>=18){
+    if(drive=="yes"){
+        console.log("You can drive");
+    }
+    else{
+        console.log("You cannot drive");
+    }
+}
+else{
+        console.log("You cannot drive");
+    }
+
+// 5- Write a program to declare a number. 
+//If the number is greater than 10 or less than 0, print "Invalid number". Otherwise, print "Valid number".
+
+let more=prompt("enter the number between 0-10");
+if(more>10){
+    console.log("Invalid number");
+}
+else if(more<0){
+    console.log("Invalid number");
+}
+else{
+    console.log("Valid number");
+}
+
+
+// 6- Write a programto declare a number. 
+//If the number is between 5 and 10 (inclusive) or between 20 and 25 (inclusive), print "The number is valid". 
+//Otherwise, print "The number is not valid".
+
+let number2=prompt("enter the number");
+if(number2<=5&&number2>=10){
+    console.log("The number is valid");
+}
+else if(number2>5&&number2<10){
+    console.log("The number is valid");
+}
+else{
+    console.log("The number is not valid")
+}
+
+// 7- to declare a password. If the password is "secret" or "password", print "Access granted". 
+//Otherwise, print "Access denied".
+let password2=prompt("enter the password");
+if(password2=="secret"||password2=="password"){
+    console.log("Access granted");
+}
+else{
+    console.log("Access denied");
+}
+
+// 8- Write a program to declare a number. If the number is between 0 and 100 (inclusive) and is even, 
+//print "The number is even and between 0 and 100". Otherwise, print "The number is not even and/or not between 0 and 100".
+number4=prompt("enet the nimber");
+if(number4>0&&number4<100){
+    if(number4%2==0){
+    console.log("The number is even and between 0 and 100");
+}
+else{
+    console.log("The number is not even and/or not between 0 and 100")
+}
+}
+else{
+    console.log("The number is not even and/or not between 0 and 100")
+}
+
+// 9- Write a program to declare two numbers. If either number is negative, print "At least one number is negative". 
+//Otherwise, print "Both numbers are positive".
+let number5=prompt("enter first number");
+let number6=prompt("enter first number");
+if(number5<0||number6<0){
+    console.log("At least one number is negative")
+}
+else{
+    console.log("Both numbers are positive");
+}
+
+// 10- Write a program to declare age and whether they are a student (yes or no). 
+//If the user is under 18 or is a student, print "You qualify for a discount". Otherwise, print "You do not qualify for a discount".
+    let age2=prompt("enter your age");
+    let isStudent=prompt("your a studant?(yes or no)")
+    if(age2<=18||isStudent=="yes"){
+        console.log( "You qualify for a discount");
+    }
+    else{
+        console.log( "You do not qualify for a discount");
+    }
+
+    </script>
+</body>
+</html>
