@@ -11,56 +11,73 @@
 
     <script>
 // 1- Write a program that prints numbers from 1 to 10 using a for loop.
-for(let i=1;i<11;i++){
-    console.log(i);
-}
+// for(let i=1;i<11;i++){
+//     console.log(i);
+// }
 
 // 2-Write a program that prints the even numbers from 1 to 10 using a for loop.
-for(i=1;i<11;i++){
-    if(i%2==0){
-    console.log(i);
-}
-}
+// for(i=1;i<11;i++){
+//     if(i%2==0){
+//     console.log(i);
+// }
+// }
 
 // 3- Write a program that prints the odd numbers from 1 to 10 using a while loop.
-for(i=1;i<11;i++){
-    if(i%2==1){
-    console.log(i);
-}
-}
+// for(i=1;i<11;i++){
+//     if(i%2==1){
+//     console.log(i);
+// }
+// }
 
 // 4- Write a program that prints the multiplication table of a number entered by the user using a for loop.
+// let a = prompt("Enter a number to show its multiplication table:"); 
+// for (let m = 1; m <= 10; m++) { 
+//     let result = a * m;
+//     console.log(`${a} x ${m} = ${result}`);
+// }
 
 
 // 5- Write a program that calculates the sum of numbers from 1 to 100 using a while loop.
-let j=1;
-let sum=0;
-while(j<=100){
-    sum +=j
-    j++
-}
-console.log(sum);
+// let j=1;
+// let sum=0;
+// while(j<=100){
+//     sum +=j
+//     j++
+// }
+// console.log(sum);
 
 // 6- Write a program that calculates the factorial of a number entered by the user using a for loop.
-let y=prompt("enter the number")
-let sum2=1;
-while(y!=0&&y>0){
+// let y=prompt("enter the number")
+// let sum2=1;
+// while(y!=0&&y>0){
 
-sum2=sum2*j;
-j--;
+// sum2=sum2*y;
+// y--;
 
-}
-
+// }
+// console.log(sum2);
 // 7- Write a program that prints the Fibonacci series up to a certain number entered by the user using a while loop.
-
+let limit = prompt("Enter the number up to which you want to display the Fibonacci series:");
+let a = 0, b = 1;
+console.log(a);
+if (limit > 0) console.log(b);
+let next = a + b;
+while (next <= limit) {
+    console.log(next);
+    a = b;        
+    b = next;     
+    next = a + b; 
+}
 
 // 8- Write a program that prints the reverse of the following numbers:
 //5 , 10 , 15 , 20
 // using a while loop.
-
-
-
-
+// let reve=[5,10,15,20,25];
+// let index = reve.length-1;
+// while(index>=0){
+//     console.log(reve[index])
+//     index--;
+// }
     </script>
 </body>
 </html>
