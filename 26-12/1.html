@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    
+
 
 
     <script>
@@ -22,11 +22,10 @@ outputs your fortune to the screen like so:
 Ex: tellFortune('software engineer', 'Jordan', 'Alice', 3);
 => "You will be a software engineer in Jordan, and married to Alice with 3 kids."
 */
-
-
-
-
-
+// function tellFortune(children,partnerName,location,jobTitle){
+//   console.log(`you will be a ${jobTitle} in ${location}, and married to ${partnerName} with ${children} kids`);
+// };
+// tellFortune(3,'Alice','jordan','software engineer');
 /*
 2
 Write a function named calculateDogAge that:
@@ -39,8 +38,12 @@ outputs the result to the screen like so:
 Ex: calculateDogAge(1);
 => "Your doggie is 7 years old in dog years!"
 */
-
-
+// function calculateDogAge(dogAge)
+// {
+//   puppy=dogAge*7;
+//   console.log(`Your doggie is ${puppy} years old in dog years!`);
+// }
+//   calculateDogAge(2);
 /*
 3
 Write a function named calculateSupply that:
@@ -52,8 +55,12 @@ outputs the result to the screen like so:
 Ex: calculateSupply(30, 3);
 => 'You will need 76650 cups of tea to last you until the ripe old age of 100;
 */
-
-
+// function calculateSupply(age,amount){
+// x=100-age;
+// y=x*amount*365;
+// console.log(`You will need ${y} cups of tea to last you until the ripe old age of 100 `);
+// }
+// calculateSupply(30, 3);
 /*
 4
 Write a function called greet that:
@@ -63,21 +70,24 @@ and it will return hello + name
 Ex: greet("Adam")
 => "Hello Adam"
 */
-
-
+// function greet(name){
+//   console.log(`Hello ${name}`);
+// }
+// let hi=prompt('your name');
+// greet(hi);
 /*
 5
 what is the error:
 function double(cat) {
-  return 2 * x;
+  return 2 * x; ->can't yous undifine argument
 }
 
 function double(7) {
-  return 2 * 7;
+  return 2 * 7; -> can,t use a number as argument
 }
 
 function double('7') {
-  return 2 * 'x';
+  return 2 * 'x'; -> can't call function in single cot & can't set name of argument in number & inside single cot
 }
 */
 
@@ -89,13 +99,27 @@ fix these functions:
 func double1(x {
   return 2 * x ;
 }
-
+--
+function double1(x) {
+  return 2 * x ;
+}
+--
 functiondouble2 x)
 return 2 * x;
 }
+--
+function double2(x) {
+  return 2 * x ;
+}
+--
 
 function (x) double3 {
   return 2 * x;
+  --
+function double3(x) {
+  return 2 * x ;
+}
+--
 
 */
 
@@ -108,8 +132,11 @@ accept 1 parameter and calculate the cube of this number
 Ex: cube(4)
 => 64
 */
-
-
+      // function cube(num){
+      //   sum=num*num*num;
+      //   console.log(sum)
+      // }
+      // cube(4);
 /*
 8
 Write a function called multiply that:
@@ -120,8 +147,10 @@ Ex: multiply(3,4)
 Ex: multiply(5,4)
 => 20
 */
-
-
+    // function multiply(x,y){
+    //   console.log(x*y)
+    // }
+    // multiply(5,4)
 /*
 9
 Write a function called canIGetADrivingLicense that:
@@ -139,7 +168,17 @@ Ex: canIGetADrivingLicense(20)
 => "yes you can"
 
 */
-
+      // function canIGetADrivingLicense(age){
+      //   if(age>=20){
+      //     console.log('yes you can')
+      //   }
+      //   else{
+      //     lelo=20-age;
+      //     console.log( `please come back after ${lelo} years to get one` );
+      //   }
+      // }
+      // canIGetADrivingLicense(14);
+      // canIGetADrivingLicense(21);
 
 /*
 10
@@ -155,7 +194,16 @@ Ex: sameLength("tree","clue")
 Ex: sameLength("tree","car")
 => false
 */
-
+      // function sameLength(hel,second){
+        // if(hel.length==second.length){
+          // console.log("true");
+        // }
+        // else{
+          // console.log("false");
+        // }
+      // }
+      // sameLength("tree","clue")
+      // sameLength("tree","car");
 /*
 11
 Write a function called largerNubmer
@@ -168,8 +216,18 @@ Ex: largerNubmer(5,6)
 Ex: largerNubmer(5,3)
 => 5
 */
-
-
+      // function largerNubmer(first,second){
+        // if(first>=second){
+          // console.log(first);
+          // return first;
+        // }
+        // else {
+          // console.log(second);
+          // return second;
+        // }
+      // }
+      // largerNubmer(5,6)
+      // largerNubmer(5,3)
 /*
 12
 Write a function called smallerNubmer
@@ -189,6 +247,25 @@ Ex: smallerNubmer(5,3,3)
 => 3
 
 */
+        // function smallerNubmer (x,y,z){
+        //   if(x<=y&&x<=z){
+        //     console.log(x);
+        //     returnx;
+        //   }
+        //   else if(y<=x&&y<=z){
+        //     console.log(y);
+        //     return y;
+        //   }
+        //   else{
+        //     console.log(z);
+        //     return z;
+        //   }
+
+        // }
+        // smallerNubmer(5,3,3);
+        // smallerNubmer(5,99,3);
+        // smallerNubmer(5,99,34);
+        // smallerNubmer(8,6,7);
 
 /*
 13
@@ -215,7 +292,29 @@ Ex: shorterString("air","tr","car","github","by")
 => by
 
 */
-
+//   function shorterString(x,y,z,w,m){
+//     if(x.length<=y.length&&x.length<=z.length&&x.length<=w.length&&x.length<=m.length){
+//     console.log(x);
+//     return x;
+//   }
+//   else if(y.length<=x.length&&y.length<=z.length&&y.length<=w.length&&y.length<=m.length){
+//     console.log(y);
+//     return y;
+//   }
+//   else if(z.length<=y.length&&z.length<=x.length&&z.length<=w.length&&z.length<=m.length){
+//     console.log(z);
+//     return z;
+//   }
+//   else if(w.length<=y.length&&w.length<=x.length&&w.length<=x.length&&w.length<=m.length){
+//     console.log(w);
+//     return w;
+//   }
+//   else{
+//     console.log(m);
+//     return m;
+//   }
+// }
+// shorterString("air","school","car","by","github");
 /*
 14
 Write a function called longerString
@@ -230,7 +329,25 @@ Ex: longerString("air","schoo","car","github")
 
 try all the cases (change the order of the longestString)
 */
-
+      // function longerString(x,y,z,w){
+      //   if(x.length>=y.length&&x.length>=z.length&&x.length>=w.length){
+      //     console.log(x);
+      //     return x;
+      //   }
+      //   else if(y.length>=x.length&&y.length>=z.length&&y.length>=w.length){
+      //     console.log(y);
+      //     return y;
+      //   }
+      //   else if(z.length>=y.length&&z.length>=x.length&&z.length>=w.length){
+      //     console.log(z);
+      //     return z;
+      //   }
+      //   else{
+      //     console.log(w);
+      //     return w;
+      //   }
+      // }
+      // longerString("air","schoo","car","github")
 /*
 15
 Write a function called isEven
@@ -244,8 +361,16 @@ Ex: isEven(2)
 => true
 
 */
-
-
+// function isEven(num){
+//   if(num%2==0){
+//     console.log("trtue");
+//   }
+//   else{
+//     console.log("false");
+//   }
+// }
+// isEven(2)
+// isEven(1)
 /*
 16
 Write a function called isOdd
@@ -259,8 +384,16 @@ Ex: isOdd(5)
 => true
 
 */
-
-
+// function isOdd(num){
+//   if(num%2!=0){
+//     console.log("trtue");
+//   }
+//   else{
+//     console.log("false");
+//   }
+// }
+// isOdd(5)
+// isOdd(4)
 /*
 17
 Write a function called positive
@@ -273,8 +406,12 @@ Ex: positive(-5)
 => 5
 
 */
+      // function positive(num){
+      //   console.log(Math.abs(num));
 
-
+      // }
+      // positive(4)
+      // positive(-5)
 /*
 18
 Write a function called fullName
@@ -287,8 +424,11 @@ Ex: fullName("Adam","McCallen")
 Ex: fullName("Alex", "Mercer")
 => "Alex Mercer"
 */
-
-
+//  function fullName(firstName,lastName){
+//   console.log(firstName+ " "+lastName);
+//  }
+//  fullName("Adam","McCallen")
+//  fullName("Alex", "Mercer")
 /*
 19
 Write a function called average
@@ -302,8 +442,14 @@ Ex: average(5,7,9,3,5)
 => 5.8
 
 */
-
-
+      // function average(a,b,c,d,e){
+      //   result=a+b+c+d+e;
+      //   result=result/5;
+      //   console.log(result);
+        
+      // }
+      // average(1,2,3,4,5);
+      // average(5,7,9,3,5);
 /*
 20
 Write a function called randomNumber
@@ -318,7 +464,12 @@ Ex: randomNumber()
 => 0.475
 
 */
-
+      // function random(){
+      //   result=Math.random(0,1);
+      //   console.log(result);
+      // }
+      // random()
+      // random()
 /*
 21
 Write a function called randomBetweenNumbers
@@ -333,8 +484,12 @@ Ex: randomBetweenNumbers(3,100)
 => 23
 
 */
-
-
+      // function randomBetweenNumbers(x,y){
+      //   result=Math.floor(Math.random() * (y - x + 1)) + x;
+      //   console.log(result);
+      // }
+      // randomBetweenNumbers(1,8);
+      // randomBetweenNumbers(3,100);
 /*
 22
 Write a function called scoreInUniversty
@@ -355,8 +510,31 @@ Ex: scoreInUniversty(3)
 Ex: scoreInUniversty(71)
 => "C"
 */
-
-
+      // function scoreInUniversty(mark){
+      //   if(mark>=95&&mark<=100){
+      //     console.log("A");
+      //     return "A";
+      //   }
+      //   else if(mark>=85&&mark<=94){
+      //     console.log("B");
+      //     return "B";
+      //   }
+      //   else if(mark>=70&&mark<=84){
+      //     console.log("c");
+      //     return "c";
+      //   }
+      //   else if(mark>=50&&mark<=69){
+      //     console.log("D");
+      //     return "D";
+      //   }
+      //   else{
+      //     console.log("F");
+      //     return "F";
+      //   }
+      // }
+      // scoreInUniversty(96);
+      // scoreInUniversty(3);
+      // scoreInUniversty(71);
 /*
 23
 Write a function called counter
@@ -375,6 +553,14 @@ Ex: counter()
 
 */
 
+// var count=0;
+// counter();
+// counter();
+// counter();
+// function counter(){
+//     count++;
+//     console.log(count);
+// }
 
 /*
 24
@@ -407,8 +593,24 @@ Ex: resetCounter()
 Ex: counter()
 => 1
 */
-
-
+// function counter(){
+//     count++;
+//     console.log(count);
+// }
+// function resetCounter(){
+//   console.log(`${count} and counter reset now`);
+//   count=0;
+// }
+// var count=0;
+// counter();
+// counter();
+// counter();
+// resetCounter();
+// counter();
+// counter();
+// resetCounter();
+// counter();
+// counter();
 
     </script>
 </body>
