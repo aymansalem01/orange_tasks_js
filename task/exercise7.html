@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{display: flex;
+        flex-direction: column;}
+        .ii{
+            width: 500px;
+        }
+        .falg{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <select class="falg" name="" id="flag">
+        <option selected value="jordan">jordan</option>
+        <option value="palasten">palestine</option>
+        <option value="ksa">ksa</option>
+        <option value="salt">as-salt</option>
+
+    </select>
+    <img id="im" class="ii" src="jo.png" alt="">
+    <script>
+        let ss=document.getElementById("flag")
+        let im=document.getElementById("im");
+        function cha(){
+            if(flag.value=="palasten"){
+        im.src="pa.jpg";
+            }else if(flag.value=="ksa"){
+        im.src="ksa.jpg";
+            }else if(flag.value=="jordan"){
+        im.src="jo.png";
+            }
+            else if(flag.value=="salt"){
+        im.src="salt1.png";
+            }
+
+        }
+        ss.addEventListener("change", cha);
+
+    </script>
+</body>
+</html>
