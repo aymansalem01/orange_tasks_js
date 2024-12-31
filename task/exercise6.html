@@ -4,16 +4,7 @@
     <meta charset="UTF-8">
     <title>Exercise #7: Simple playlist </title>
     <link rel="stylesheet" href="exercise7.css">
-    <script>
-        function newword(){
-            word =document.getElementById("songTextInput").value;
-            const para = document.createElement("li");
-            const node = document.createTextNode(word);
-            para.appendChild(node);
-            const element = document.getElementById("playlist");
-            element.appendChild(para);
-        }
-    </script>
+    
 </head>
 <body>
 <p>this is your playlist, when enter the song and hit add song a list should be created withe delete button as image below</p>
@@ -25,7 +16,24 @@
 
 <ul id="playlist">
 </ul>
-
+<script>
+    function newword(){
+        word =document.getElementById("songTextInput").value;
+        const para = document.createElement("li");
+        const node = document.createTextNode(word);
+        para.appendChild(node);
+        
+        const deletButton = document.createElement("button");
+        deletButton.textContent="delete";
+        para.appendChild(deletButton);
+        
+        deletButton.onclick=function(){
+            element.removeChild(para);
+        }
+        const element = document.getElementById("playlist");
+        element.appendChild(para);
+    }
+</script>
 </body>
 </html>
 
