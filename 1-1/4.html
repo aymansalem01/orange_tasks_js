@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Filter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+        }
+        input {
+            padding: 8px;
+            margin-bottom: 20px;
+            width: 200px;
+            font-size: 16px;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .highlight {
+            background-color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Searchable Table</h1>
+    <input type="text" id="search-input" placeholder="Search...">
+    <table id="data-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Country</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John Doe</td>
+                <td>25</td>
+                <td>USA</td>
+            </tr>
+            <tr>
+                <td>Mary Smith</td>
+                <td>30</td>
+                <td>Canada</td>
+            </tr>
+            <tr>
+                <td>James Brown</td>
+                <td>22</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Linda White</td>
+                <td>29</td>
+                <td>Australia</td>
+            </tr>
+            <tr>
+                <td>Michael Johnson</td>
+                <td>35</td>
+                <td>USA</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+    document.getElementById("search-input").addEventListener("input", function() {
+    const searchValue = this.value.toLowerCase(); 
+    const rows = document.querySelectorAll("#data-table tbody tr"); 
+    rows.forEach(row => {
+        const cells = row.getElementsByTagName("td"); 
+        let matchFound = false;  
+        for (let cell of cells) { 
+            if (cell.textContent.toLowerCase().includes(searchValue)) {
+                matchFound = true;
+                cell.innerHTML = cell.textContent.replace(
+                    new RegExp(searchValue, "gi"),
+                    match => `<span class="highlight">${match}</span>`
+                );
+            } else {
+                cell.innerHTML = cell.textContent;
+            }
+        }
+        row.style.display = matchFound ? "" : "none";
+    });
+});
+    </script>
+</body>
+</html>

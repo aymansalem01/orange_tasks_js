@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="celsius" type="number" placeholder="Celsius">
+    <input id="fahrenheit" type="number" placeholder="Fahrenheit">
+    <button onclick="calculate()" >calculate</button>
+    <script>
+        function calculate(){
+        const temp1 = document.getElementById("celsius");
+        const temp2 = document.getElementById("fahrenheit");
+
+        const valC = parseFloat(temp1.value);
+        const valF=parseFloat(temp2.value);
+
+        if(isNaN (valC) && isNaN(valF)){
+            alert("please inter the degree")
+            return ;
+        }
+        const fahrenheit = (1.8 * valC) + 32;
+            temp2.value=fahrenheit;
+        const celsius =  (valF - 32) / 1.8;
+            temp1.value=celsius;
+        }
+    </script>
+</body>
+</html>

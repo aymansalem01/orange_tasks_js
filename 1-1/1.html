@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <input type="text" id="todoinput" size="40" placeholder="add to do list">
+        <input type="button" id="addButton" value="Add Song" onclick="newword()">
+    <ul id="to_list">
+    </ul>
+    <script>
+        function newword(){
+        word =document.getElementById("todoinput").value;
+        const para = document.createElement("li");
+        const node = document.createTextNode(word);
+        para.appendChild(node);
+        
+        const deletButton = document.createElement("button");
+        deletButton.textContent="delete";
+        para.appendChild(deletButton);
+        
+        deletButton.onclick=function(){
+            element.removeChild(para);
+        }
+        const element = document.getElementById("to_list");
+        element.appendChild(para);
+        document.getElementById("todoinput").value = "";
+    }
+    </script>
+</body>
+</html>
