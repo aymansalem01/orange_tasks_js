@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/boosted@5.3.3/dist/css/boosted.min.css" rel="stylesheet" integrity="sha384-laZ3JUZ5Ln2YqhfBvadDpNyBo7w5qmWaRnnXuRwNhJeTEFuSdGbzl4ZGHAEnTozR" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/boosted@5.3.3/dist/js/boosted.bundle.min.js" integrity="sha384-3RoJImQ+Yz4jAyP6xW29kJhqJOE3rdjuu9wkNycjCuDnGAtC/crm79mLcwj1w2o/" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        .right{
+            width: 65%;
+        }
+        .helloword{
+            padding-left: 200px;
+        }
+        .left{
+            width: 35%;
+            height: 100vh;
+        }
+        @media only screen and (max-width: 900px){
+            .left{
+                display: none;
+            }
+            .right{
+                width: 100%;
+            }
+            .helloword{
+                padding-left: 0px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex">
+        <div class="left">
+            <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                </div>
+            <!-- The slideshow/carousel -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="1.jpg" alt="Los Angeles" class="d-block" style="width:100%">
+                        
+                    </div>
+                    <div class="carousel-item">
+                        <img src="2.jpg" alt="Chicago" class="d-block" style="width:100%"> 
+                    </div> 
+                </div>
+            </div>
+            
+        </div>
+        <div class="right ">
+            <nav class="navbar navbar-expand navbar-light " style="border-bottom: 2px solid;">
+                <div class="container-fluid ">
+                <div class="collapse navbar-collapse ms-5" id="mynavbar">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a href="https://datascience.orangecodingacademy.com/" target="_blank"> <img src="orange.png" width="200px" height="50px"></a>
+                        </li>
+                    </ul>
+            </div>
+            </div>
+            <div class="container justify-content-end">
+            <div class="d-flex mt-3" style="justify-content: end;">
+                <ul class="navbar-nav me-auto">
+                    <li class="navbar-nav me-auto">
+                        <a class="nav-link" href="https://datascience.orangecodingacademy.com/help" target="_blank">Help</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://datascience.orangecodingacademy.com/terms" target="_blank">Term & Conditions</a>
+                    </li>
+                </ul>
+            </div>
+            </div>
+            </nav>
+            <div class="container mt-5 helloword" >
+                <h1> Create an account </h1>
+                <form  class="align-items-center" style="max-width: 450px;">
+                    <div class="mb-3 mt-3 mt-5">
+                        <label for="email" class="form-label">Email address<span style="color: rgb(243, 59, 3);">*</span></label>
+                        <input type="email" class="form-control" id="emailSign"  name="email" required >
+                        <p id="emailSignErr">eg: username@domain.com</p>
+                        <div class="valid-feedback">Valid.</div>
+                        <div class="invalid-feedback">Please fill out this field.</div>
+                    </div>
+                    <div class="mb-3 mt-4">
+                        <label for="usernameSign" class="form-label">User Name<span style="color: rgb(243, 59, 3);">*</span></label>
+                            <input type="text" class="form-control" id="usernameSign"  name="uname" required >
+                            <p id="usernameSignErr">at least 3 diget</p>
+                            <div class="valid-feedback">Valid.</div>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                    <div class="mb-3 mt-4">
+                        <label for="phone" class="form-label">Moblie <span style="color: rgb(243, 59, 3);">*</span></label>
+                        <input type="text" class="form-control" id="numberSign"  name="phone"  required>
+                        <p id="numberSignErr">eg:077*******</p>
+                    </div>
+                    <div class="mb-3 mt-4">
+                        <label for="pwd" class="form-label">Create password <span style="color: rgb(243, 59, 3);">*</span></label>
+                        <input type="password" class="form-control" id="passwordSign"  name="pswd" required >
+                        <p id="passwordSignErr">The password should be betsween 6-18 characters</p>
+                    </div>
+                    <div class="mb-3 mt-4">
+                        <label for="pwd" class="form-label">Confirm password<span style="color: rgb(243, 59, 3);">*</span></label>
+                        <input type="password" class="form-control" id="confirmSign"  name="pswd" required >
+                        <p id="confirmSignErr"></p>
+                    </div>
+                    <div class="form-check mb-3 mt-4">
+                        <input class="form-check-input" type="checkbox" id="myCheck1"  name="remember" required>
+                        <label class="form-check-label" for="myCheck1">I agree to the <a href="https://datascience.orangecodingacademy.com/terms">terms & conditions  </a> Orange.</label>
+                    </div>
+                    <div class="form-check mb-3 mt-4">
+                        <input class="form-check-input" type="checkbox" id="myCheck"  name="remember" required>
+                        <label class="form-check-label" for="myCheck"> Receive Coding Academy Newsletter</label>
+                    </div>
+                    <div class="d-grid">
+                    <button onclick="signin()" type="submit" class="btn btn-primary btn-block" >Sign up</button>
+                    </div>
+                    <div class="d-grid">
+                        <button onclick="window.location.href='login.html'"  type="submit" class="btn  btn-block border mt-3" >Already have an account?login</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="auth.js"></script>
+</body>
+</html>
