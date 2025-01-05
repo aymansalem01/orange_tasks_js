@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+    body{
+        display: flex;
+        height: 600px;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    .item1 {
+        grid-area: myArea;
+        background-color: white;
+        padding: 10px;
+        height: 50px;
+    }
+    .gri{
+        display: grid;
+        grid-template-areas: 'myArea myArea myArea myArea ';
+        background-color: blue;
+        padding: 10px;
+        gap: 10px;
+        width: 40%;
+    }
+    .why{
+        background-color: white;
+        text-align: center;
+        padding: 10px;
+    }
+    .yel{
+        background-color: yellow;
+        text-align: center;
+        padding: 10px;
+
+    }
+    .red{
+        background-color: red;
+        text-align: center;
+        padding: 10px;
+
+    }
+</style>
+</head>
+<body>
+    <div class="gri">
+        <div class="item1"></div>
+        <div class="why" >1</div>
+        <div class="why">2</div>
+        <div class="why">3</div>
+        <div class="yel">+</div>
+        <div class="why">4</div>
+        <div class="why">5</div>
+        <div class="why">6</div>
+        <div class="yel">-</div>
+        <div class="why">7</div>
+        <div class="why">8</div>
+        <div class="why">9</div>
+        <div class="yel">*</div>
+        <div class="red">C</div>
+        <div class="why">0</div>
+        <div class="why">=</div>
+        <div class="yel">/</div>
+
+    </div>
+</body>
+</html>

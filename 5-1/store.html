@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card{
+            display: grid;
+            grid-template-columns: auto auto  auto;
+        }
+        .card>div{
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+        }
+        #phone{
+            display: none;
+            justify-content: space-around;
+        }
+        #headset{
+            display: none;
+            justify-content: space-around;
+        }
+        #keyboard{
+            display: none;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div>
+            <div><img src="phon.png" style="width: 80%;"></div>
+            <div style="display: flex; justify-content: space-around; padding-top: 10px;">
+                <div>iphone 16</div>
+                <div>800$</div>
+            </div>
+            <div style="display: flex;justify-content: center;"><button style="width: 50%;" id="addphone" onclick="showphone()">add to chart</button></div>
+        </div>
+        <div>
+            <div><img src="headset.png" style="width: 80%;"></div>
+            <div style="display: flex; justify-content: space-around;">
+                <div>head set</div>
+                <div>200$</div>
+            </div>
+            <div style="display: flex;justify-content: center;"><button id="addheadset" style="width: 50%;" onclick="showhead()">add to chart</button></div>
+        </div>
+        <div>
+            <div><img src="keboard.jpg" style="width: 80%; padding-top: 30px;"></div>
+            <div style="display: flex; justify-content: space-around;padding-top: 10px;">
+                <div>keyboard</div>
+                <div>150$</div>
+            </div>
+            <div style="display: flex;justify-content: center;"><button id="addkeyboard" style="width: 50%;" onclick="showkey()">add to chart</button></div>
+        </div>
+    </div>
+    <div id="chart" style="padding-top: 100px;">
+        <div id="phone">
+            <div> <img src="phon.png" style="max-width: 150px;"></div>
+            <div style="display: flex;"> <button style="height: 50px;" onclick="subphone()">-</button> <p id="numphone">0</p> <button style="height: 50px;" onclick="addphone()">+</button> </div>
+            <div > <p><span id="pricephone">0</span>$</p></div>
+            <div> <button onclick="deletephone()">delete item</button></div>
+        </div>
+        <div id="headset">
+            <div> <img src="headset.png" style="max-width: 150px;"></div>
+            <div style="display: flex;"> <button style="height: 50px;" onclick="subhead()">-</button> <p id="numhead">0</p> <button style="height: 50px;" onclick="addhead()">+</button> </div>
+            <div > <p><span id="pricehead">0</span>$</p></div>
+            <div> <button onclick="deletephead()">delete item</button></div>
+        </div>
+        <div id="keyboard">
+            <div> <img src="keboard.jpg" style="max-width: 150px;"></div>
+            <div style="display: flex;"> <button style="height: 50px;" onclick="subkey()">-</button> <p id="numkey">0</p> <button style="height: 50px;" onclick="addkey()">+</button> </div>
+            <div > <p><span id="pricekey">0</span>$</p></div>
+            <div> <button onclick="deletekey()">delete item</button></div>
+        </div>
+        <div style="display: inline-block;text-align: center;"> <h1>total</h1> <h1 id="total">0</h1> <button onclick="total()">sum total</button> </div>
+    </div>
+    <script>
+        function showhead() {
+            document.getElementById("headset").style.display="flex";
+        }
+        function showkey(){
+            document.getElementById("keyboard").style.display="flex"
+        }
+        function showphone(){
+            document.getElementById("phone").style.display="flex"
+        }
+        function deletephead(){
+            document.getElementById("headset").style.display="none";
+            var sumhead=0;
+            document.getElementById("numhead").textContent = (sumhead);
+            document.getElementById("pricehead").textContent = (sumhead*200);
+        }
+        function deletephone(){
+            document.getElementById("phone").style.display="none"
+            var sumphone=0;
+            document.getElementById("numphone").textContent = (sumphone);
+            document.getElementById("pricephone").textContent = (sumphone*800);
+
+        }
+        function deletekey(){
+            document.getElementById("keyboard").style.display="none"
+            var sumhead=0;
+            document.getElementById("numkey").textContent = (sumhead);
+            document.getElementById("pricekey").textContent = (sumhead*150);
+        }
+        function addhead(){
+            let head =  parseInt(document.getElementById("numhead").textContent);
+            var sumhead=head+1;
+            document.getElementById("numhead").textContent = (sumhead);
+            document.getElementById("pricehead").textContent = (sumhead*200);
+        }
+        function subhead(){
+            let head =  parseInt(document.getElementById("numhead").textContent);
+            var sumhead=head-1;
+            document.getElementById("numhead").textContent = (sumhead);
+            document.getElementById("pricehead").textContent = (sumhead*200);
+        }
+        function addkey(){
+            let head =  parseInt(document.getElementById("numkey").textContent);
+            var sumhead=head+1;
+            document.getElementById("numkey").textContent = (sumhead);
+            document.getElementById("pricekey").textContent = (sumhead*150);
+        }
+        function subkey(){
+            let head =  parseInt(document.getElementById("numkey").textContent);
+            var sumhead=head-1;
+            document.getElementById("numkey").textContent = (sumhead);
+            document.getElementById("pricekey").textContent = (sumhead*150);
+        }
+        function addphone(){
+            let head =  parseInt(document.getElementById("numphone").textContent);
+            var sumphone=head+1;
+            document.getElementById("numphone").textContent = (sumphone);
+            document.getElementById("pricephone").textContent = (sumphone*800);
+        }
+        function subphone()
+        {
+            let head =  parseInt(document.getElementById("numphone").textContent);
+            var sumphone=head-1;
+            document.getElementById("numphone").textContent = (sumphone);
+            document.getElementById("pricephone").textContent = (sumphone*800);
+        }
+        function total(){
+            let total =document.getElementById("total")
+            sumtotal = (
+            parseInt(document.getElementById("pricephone").textContent) + 
+            parseInt(document.getElementById("pricekey").textContent) +
+            parseInt(document.getElementById("pricehead").textContent))
+            total.textContent = sumtotal;
+        }
+    </script>
+</body>
+</html>

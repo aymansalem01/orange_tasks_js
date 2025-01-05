@@ -48,7 +48,6 @@ function signin(){
     }
     if(valid){
         var iduser = parseInt(localStorage.getItem("iduser")) || 1;
-        // checkfound(email.value);
         let user = {email : email.value , phone : phoneNumber.value , password : pass.value , name : username.value , id : iduser};
         iduser++;
         localStorage.setItem("iduser",iduser);
@@ -56,6 +55,7 @@ function signin(){
         users.push(user);
         localStorage.setItem("users", JSON.stringify(users));
         window.location.href = "login.html";
+        alert("hi");
     }
 }
 function login(){
@@ -72,7 +72,7 @@ function login(){
                 if(passL == users[i].password){
                     sessionStorage.setItem("name",users[i].name);
                     sessionStorage.setItem("id",users[i].id);
-                    window.location.href="profile.html";
+                    window.location.href = "profile.html";
                 }
                 else{
                     passLerr.textContent = "كلمة السر غلط يا حشم"
