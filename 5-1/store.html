@@ -91,49 +91,56 @@
             var sumhead=0;
             document.getElementById("numhead").textContent = (sumhead);
             document.getElementById("pricehead").textContent = (sumhead*200);
+            sessionStorage.setItem("headnum",sumhead);
         }
         function deletephone(){
             document.getElementById("phone").style.display="none"
             var sumphone=0;
             document.getElementById("numphone").textContent = (sumphone);
             document.getElementById("pricephone").textContent = (sumphone*800);
-
+            sessionStorage.setItem("phonenum",sumphone);
         }
         function deletekey(){
             document.getElementById("keyboard").style.display="none"
             var sumhead=0;
             document.getElementById("numkey").textContent = (sumhead);
             document.getElementById("pricekey").textContent = (sumhead*150);
+            sessionStorage.setItem("keynum",sumhead);
         }
         function addhead(){
             let head =  parseInt(document.getElementById("numhead").textContent);
             var sumhead=head+1;
             document.getElementById("numhead").textContent = (sumhead);
             document.getElementById("pricehead").textContent = (sumhead*200);
+            sessionStorage.setItem("headnum",sumhead);
         }
         function subhead(){
             let head =  parseInt(document.getElementById("numhead").textContent);
             var sumhead=head-1;
             document.getElementById("numhead").textContent = (sumhead);
             document.getElementById("pricehead").textContent = (sumhead*200);
+            sessionStorage.setItem("headnum",sumhead);
         }
         function addkey(){
             let head =  parseInt(document.getElementById("numkey").textContent);
             var sumhead=head+1;
             document.getElementById("numkey").textContent = (sumhead);
             document.getElementById("pricekey").textContent = (sumhead*150);
+            sessionStorage.setItem("keynum",sumhead);
         }
         function subkey(){
             let head =  parseInt(document.getElementById("numkey").textContent);
             var sumhead=head-1;
             document.getElementById("numkey").textContent = (sumhead);
             document.getElementById("pricekey").textContent = (sumhead*150);
+            sessionStorage.setItem("keynum",sumhead);
         }
         function addphone(){
             let head =  parseInt(document.getElementById("numphone").textContent);
             var sumphone=head+1;
             document.getElementById("numphone").textContent = (sumphone);
             document.getElementById("pricephone").textContent = (sumphone*800);
+            sessionStorage.setItem("phonenum",sumphone);
         }
         function subphone()
         {
@@ -141,6 +148,7 @@
             var sumphone=head-1;
             document.getElementById("numphone").textContent = (sumphone);
             document.getElementById("pricephone").textContent = (sumphone*800);
+            sessionStorage.setItem("phonenum",sumphone);
         }
         function total(){
             let total =document.getElementById("total")
@@ -149,6 +157,26 @@
             parseInt(document.getElementById("pricekey").textContent) +
             parseInt(document.getElementById("pricehead").textContent))
             total.textContent = sumtotal;
+        }
+        window.onload = function() {
+            phonenum = parseInt(sessionStorage.getItem("phonenum"));
+            keynum = parseInt(sessionStorage.getItem("keynum"));
+            headnum = parseInt(sessionStorage.getItem("headnum"));
+            if(phonenum > 0){
+                showphone();
+                document.getElementById("numphone").textContent = phonenum;
+                document.getElementById("pricephone").textContent = (phonenum*800);
+            }
+            if(keynum > 0 ){
+                showkey()
+                document.getElementById("numkey").textContent = keynum ; 
+                document.getElementById("pricekey").textContent = (keynum * 150);
+            }
+            if(headnum > 0){
+                showhead();
+                document.getElementById("numhead").textContent = headnum;
+                document.getElementById("pricehead").textContent = (headnum * 200)
+            }
         }
     </script>
 </body>
