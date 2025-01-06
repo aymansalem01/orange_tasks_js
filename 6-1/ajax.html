@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Comment System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #comments {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            min-height: 50px;
+        }
+        .comment {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>AJAX Comment System</h1>
+    <input type="text" id="commentInput" placeholder="Type your comment here" oninput="showLiveComment()">
+    <button onclick="addComment()">Send comment</button>
+    <button onclick="clearChat()">Clear chat</button>
+    <h3>Get comment:</h3>
+    <div id="liveComment" style="color: gray; font-style: italic; margin-bottom: 10px;"></div>
+    <div id="comments"></div>
+    <script>
+        function showLiveComment() {
+            const input = document.getElementById('commentInput');
+            const liveComment = document.getElementById('liveComment');
+            liveComment.textContent = input.value;
+        }
+        window.onload = function() {
+            displayComments();
+        }
+        function addComment() {
+            const input = document.getElementById('commentInput');
+            const commentText = input.value;
+            if (commentText === '') {
+                alert('Please type a comment before sending.');
+                return;
+            }
+            fetch('https://jsonplaceholder.typicode.com/posts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ comment: commentText })
+            }).then(response => response.json())
+                .then(data => {
+                    const storedComments = localStorage.getItem('comments');
+                    const comments = storedComments ? JSON.parse(storedComments) : [];
+                    comments.push({ comment: commentText });
+                    localStorage.setItem('comments', JSON.stringify(comments));
+                    displayComments();
+                }).catch(error => {
+                    console.error('Error:', error);
+                });
+            input.value = '';
+            document.getElementById('liveComment').textContent = '';
+        }
+        function displayComments() {
+            const storedComments = localStorage.getItem('comments');
+            const commentsDiv = document.getElementById('comments');
+            commentsDiv.innerHTML = ''; 
+            if (storedComments) {
+                const comments = JSON.parse(storedComments);
+                comments.forEach(comment => {
+                    const commentDiv = document.createElement('div');
+                    commentDiv.className = 'comment';
+                    commentDiv.textContent = comment.comment;
+                    commentsDiv.appendChild(commentDiv);
+                });
+            }
+        }
+        function clearChat() {
+            localStorage.removeItem('comments');
+            displayComments();
+        }
+    </script>
+</body>
+</html>

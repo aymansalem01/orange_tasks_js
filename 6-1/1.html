@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX-like Comment System</title>
+</head>
+<body>
+    <h1>AJAX comment System</h1>
+    <div>
+        <input type="text" id="input" placeholder="Write a comment">
+        <button onclick="addToList()">Send Comment</button>
+        <h1>Current Input: <span id="temp"></span></h1>
+    </div>
+    <div id="comment"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", loadComments);
+        setInterval(() => {
+            const text = document.getElementById("input").value;
+            document.getElementById("temp").textContent = text;
+        }, 200);
+        function addToList() {
+            const text = document.getElementById("input").value.trim();
+            if (text === "") {
+                alert("Comment cannot be empty!");
+                return;
+            }
+            const para = document.createElement("h2");
+            const node = document.createTextNode(text);
+            para.appendChild(node);
+            const deleteButton = document.createElement("button");
+            deleteButton.textContent = "Delete";
+            para.appendChild(deleteButton);
+            deleteButton.onclick = function () {
+                deleteComment(text, para);
+            };
+            const element = document.getElementById("comment");
+            element.appendChild(para);
+            saveComment(text);
+            document.getElementById("input").value = "";
+            document.getElementById("temp").textContent = "";
+        }
+        function saveComment(comment) {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            comments.push(comment);
+            localStorage.setItem("comments", JSON.stringify(comments));
+        }
+        function loadComments() {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            const element = document.getElementById("comment");
+            comments.forEach((comment) => {
+                const para = document.createElement("h2");
+                const node = document.createTextNode(comment);
+                para.appendChild(node);
+                const deleteButton = document.createElement("button");
+                deleteButton.textContent = "Delete";
+                para.appendChild(deleteButton);
+                deleteButton.onclick = function () {
+                    deleteComment(comment, para);
+                };
+                element.appendChild(para);
+            });
+        }
+        function deleteComment(comment, element) {
+            const comments = JSON.parse(localStorage.getItem("comments")) || [];
+            const updatedComments = comments.filter((c) => c !== comment);
+            localStorage.setItem("comments", JSON.stringify(updatedComments));
+            document.getElementById("comment").removeChild(element);
+        }
+    </script>
+</body>
+</html>
