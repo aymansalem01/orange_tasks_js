@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1> AJAX Request with javaScript</h1>
+    <div>
+        <input type="text" id="input" placeholder="javascript" >
+        <button onclick="addtolist()">send comment </button>
+        <h1>Get comment: <span id="temp"></span></h1>
+    </div>
+    <div id="comment"></div>
+    <script>
+        setInterval(edittemp(),500);
+        function addtolist(){
+            let text = document.getElementById("input").value;
+            const para = document.createElement("h2");
+            const node = document.createTextNode(text);
+            para.appendChild(node);
+            const deletButton = document.createElement("button");
+            deletButton.textContent="delete";
+            para.appendChild(deletButton);
+            deletButton.onclick=function(){
+            element.removeChild(para);
+        }
+        const element = document.getElementById("comment");
+        element.appendChild(para);
+        document.getElementById("input").value = "";
+        document.getElementById("temp").textContent = ""
+        }
+        function edittemp(){
+            text = document.getElementById("input").value;
+            document.getElementById("temp").innerHTML = text ;
+        }
+    </script>
+</body>
+</html>
