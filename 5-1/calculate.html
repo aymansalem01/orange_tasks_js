@@ -47,24 +47,48 @@
 </head>
 <body>
     <div class="gri">
-        <div class="item1"></div>
-        <div class="why" >1</div>
-        <div class="why">2</div>
-        <div class="why">3</div>
-        <div class="yel">+</div>
-        <div class="why">4</div>
-        <div class="why">5</div>
-        <div class="why">6</div>
-        <div class="yel">-</div>
-        <div class="why">7</div>
-        <div class="why">8</div>
-        <div class="why">9</div>
-        <div class="yel">*</div>
-        <div class="red">C</div>
-        <div class="why">0</div>
-        <div class="why">=</div>
-        <div class="yel">/</div>
+        <div class="item1 " id="result"></div>
+        <div class="why button" data-value="1" >1</div>
+        <div class="why button" data-value="2">2</div>
+        <div class="why button" data-value="3">3</div>
+        <div class="yel button" data-value="+">+</div>
+        <div class="why button" data-value="4">4</div>
+        <div class="why button" data-value="5">5</div>
+        <div class="why button" data-value="6">6</div>
+        <div class="yel button" data-value="-">-</div>
+        <div class="why button" data-value="7">7</div>
+        <div class="why button" data-value="8">8</div>
+        <div class="why button" data-value="9">9</div>
+        <div class="yel button" data-value="*">*</div>
+        <div class="red button" data-value="c">C</div>
+        <div class="why button" data-value="0">0</div>
+        <div class="why button" data-value="=">=</div>
+        <div class="yel button" data-value="/">/</div>
 
     </div>
+    <script>
+        let result = document.getElementById("result");
+        let cal = "";  
+
+        document.querySelectorAll(".button").forEach(button => {
+            button.addEventListener("click", function() {
+                let value = button.getAttribute("data-value");
+                if (value === "=") {
+                    try {
+                        result.textContent = eval(cal);
+                        cal = result.textContent;
+                    } catch (e) {
+                        result.textContent = "Error";
+                    }
+                } else if (value === "c") {
+                    cal = "";
+                    result.textContent = ""; 
+                } else {
+                    cal += value;
+                    result.textContent = cal;
+                }
+            });
+        });
+    </script>
 </body>
 </html>
