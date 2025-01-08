@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="weather-side">
+          <div class="weather-gradient"></div>
+          <div class="date-container">
+            <h2 class="date-dayname" id="day">Tuesday</h2><span class="date-day" id="date">15 Jan 2019</span><i class="location-icon" data-feather="map-pin"></i><span class="location" id="loca">Paris, FR</span>
+          </div>
+          <div class="weather-container"><i class="weather-icon" data-feather="sun"></i>
+            <h1 class="weather-temp" id="temp">29°C</h1>
+            <h3 class="weather-desc" id="status">Sunny</h3>
+          </div>
+        </div>
+        <div class="info-side">
+          <div class="today-info-container">
+            <div class="today-info">
+              <div class="precipitation"> <span class="title">PRESSURE</span><span class="PRESSURE value" id="pressure">0%</span>
+                <div class="clear"></div>
+              </div>
+              <div class="humidity"> <span class="title">HUMIDITY</span><span class="humidity-view" id="humidity">34 %</span>
+                <div class="clear"></div>
+              </div>
+              <div class="wind"> <span class="title">WIND</span><span class="wind-view" id="wind">0 km/h</span>
+                <div class="clear"></div>
+              </div>
+            </div>
+          </div>
+          <div class="week-container">
+            <ul class="week-list">
+              <li class="active"><i class="day-icon" data-feather="sun"></i><span class="day-name" id="day1">Tue</span><span class="day-temp" id="temp1">29°C</span></li>
+              <li><i class="day-icon" data-feather="cloud"></i><span class="day-name" id="day2">Wed</span><span class="day-temp" >21°C</span></li>
+              <li><i class="day-icon" data-feather="cloud-snow"></i><span class="day-name" id="day3">Thu</span><span class="day-temp">08°C</span></li>
+              <li><i class="day-icon" data-feather="cloud-rain"></i><span class="day-name" id="day4">Fry</span><span class="day-temp">19°C</span></li>
+              <div class="clear"></div>
+            </ul>
+          </div>
+          <div class="location-container">
+            <!-- <button class="location-button"> <i data-feather="map-pin"></i><span>Change location</span></button> -->
+            <select class="location-button listcity" id="city"  onchange="changewither()">
+                <option value="Amman"> Amman </option>
+                <option value="Paris" selected> Paris </option>
+                <option value="London"> london </option>
+            </select>
+          </div>
+        </div>
+      </div>
+    <script>
+      async  function changewither(){
+        const london = "https://api.openweathermap.org/data/2.5/weather?q=london&appid=9d2084ece76616b6db5b166f68b6ff91";
+        const Amman = "https://api.openweathermap.org/data/2.5/weather?q=amman&appid=9d2084ece76616b6db5b166f68b6ff91";
+        const paris = "https://api.openweathermap.org/data/2.5/weather?q=paris&appid=9d2084ece76616b6db5b166f68b6ff91";
+        const city = document.getElementById("city");
+        const wind = document.getElementById("wind");
+        const pressure = document.getElementById("pressure");
+        const humidity = document.getElementById("humidity");
+        const temp = document.querySelector("#temp");
+        const loca = document.getElementById("loca");
+        const day = document.getElementById("day");
+        const date = document.getElementById("date");
+        const status = document.getElementById("status");
+        const day1 = document.getElementById("day1");
+        const day2 = document.getElementById("day2");
+        const day3 = document.getElementById("day3");
+        const day4 = document.getElementById("day4");
+        const temp1 = document.getElementById("temp1");
+        const responselondon = await fetch(london);
+        const responseparis = await fetch(paris);
+        const responseamman = await fetch(Amman);
+        dataamman =  await responseamman.json();
+        dataparis = await responseparis.json();
+        datalondon = await responselondon.json();
+        const days = ["Sun", "Mon", "Tues", "Wednes", "Thurs", "Fri", "Satur"];
+        let d = new Date();
+        let mo = d.getMonth() + 1;  
+        let da = d.getDate();        
+        let ya = d.getFullYear();    
+        date.textContent = `${da} / ${mo} / ${ya}`;
+        day.textContent = days[d.getDay()];
+        day1.textContent = days[d.getDay()];
+        day2.textContent = days[d.getDay()+1];
+        day3.textContent = days[d.getDay()+2];
+        day4.textContent = days[d.getDay()+3];
+        if(city.value == "Amman"){
+          loca.textContent = "amman, jo" ; 
+          temp.textContent = (dataamman.main.temp-273.15).toFixed(0) + "C";
+          temp1.textContent = (dataamman.main.temp-273.15).toFixed(0) + "C";
+          humidity.textContent = dataamman.main.humidity + "%";
+          wind.textContent = dataamman.wind.speed + "Km/h";
+          pressure.textContent = (dataamman.main.pressure / 100) + "%";
+          status.textContent = dataamman.weather[0].main;
+        }
+        if(city.value == "Paris"){
+          loca.textContent = "paris, fra" ;
+          temp.textContent = (dataparis.main.temp-273.15).toFixed(0) + " C";
+          temp1.textContent = (dataparis.main.temp-273.15).toFixed(0) + "C";
+          humidity.textContent = dataparis.main.humidity + "%";
+          wind.textContent = dataparis.wind.speed + "Km/h";
+          pressure.textContent = (dataparis.main.pressure/100) + "%";
+          status.textContent = dataparis.weather[0].main;
+        }
+        if(city.value == "London"){
+          loca.textContent = "london, UK" ;
+          temp.textContent = (datalondon.main.temp-273.15).toFixed(0) + " C";
+          temp1.textContent = (datalondon.main.temp-273.15).toFixed(0) + "C";
+          humidity.textContent = datalondon.main.humidity + "%";
+          wind.textContent = datalondon.wind.speed + "Km/h";
+          pressure.textContent = (datalondon.main.pressure/100) + "%";
+          status.textContent = datalondon.weather[0].main;
+        }
+      }
+      changewither();
+    </script>
+</body>
+</html>
